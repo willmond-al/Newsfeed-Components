@@ -116,49 +116,53 @@ const data = [
 */
 const articles = document.querySelector('.articles')
 
-function articleMaker(articleObj) {
+data.map(data => {
+  return articles.appendChild(articleMaker(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
 
-const articleTitle = document.createElement('h2');
+articles.appendChild(articleMaker('a', 'b', 'c', 'd', 'e'))
 
+function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+
+const article = document.createElement('div');
+const header = document.createElement('h2');
 const articleDate = document.createElement('p');
-
 const articlePara1 = document.createElement('p');
 const articlePara2 = document.createElement('p');
 const articlePara3 = document.createElement('p');
-const button = document.createElement('button');
+const button = document.createElement('span');
 
+article.appendChild(header);
+article.appendChild(articleDate);
+article.appendChild(articlePara1);
+article.appendChild(articlePara2);
+article.appendChild(articlePara3);
+article.appendChild(button);
 
-articles.appendChild(articleTitle);
-articles.appendChild(articleDate);
-articles.appendChild(articlePara1);
-articles.appendChild(articlePara2);
-articles.appendChild(articlePara3);
-
-// articleTitle.appendChild(articlePara2);
-// articleTitle.appendChild(articlePara3);
-articles.appendChild(button);
-
-articleTitle.classList.add('articleTitle');
-articleDate.classList.add('articleDate');
-articlePara1.classList.add('articlePara1');
-articlePara2.classList.add('articlePara2');
-articlePara3.classList.add('articlePara3');
+article.classList.add('article')
+articleDate.classList.add('date')
+button.classList.add('expandButton')
 
 
 // articleTitle.textContent = data.title;
-articleTitle.textContent = data[0].title
-articleDate.textContent = data[0].date;
-articlePara1.textContent = data[0].firstParagraph
-articlePara2.textContent = data[0].secondParagraph
-articlePara3.textContent = data[0].thirdParagraph
+header.textContent = title;
+articleDate.textContent = date;
+articlePara1.textContent = firstParagraph;
+articlePara2.textContent = secondParagraph;
+articlePara3.textContent = thirdParagraph;
 button.textContent = '+'
 
-return articleTitle
+button.addEventListener('click', (event) => {
+  article.classList.toggle('article-open')
+})
 
-
+return article
 }
 
-const articleTest = articleMaker(data)
-articles.appendChild(articleTest)
+
+
+
+// const articleTest = articleMaker(data)
+// articles.appendChild(articleTest)
 
 
