@@ -142,8 +142,7 @@ articleTitle.classList.add('articleTitle');
 articleDate.classList.add('articleDate');
 articlePara1.classList.add('articlePara1');
 articlePara2.classList.add('articlePara2');
-// articlePara2.classList.add('articlePara2');
-// articlePara3.classList.add('articlePara3');
+articlePara3.classList.add('articlePara3');
 
 
 // articleTitle.textContent = data.title;
